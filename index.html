@@ -560,7 +560,7 @@
 
     try{
       const data = await askGita(question);
-      const answer = (data && data.answer) ? data.reply : "No answer came back. Please try again.";
+     const answer = data?.answer || data?.reply || "No answer came back. Please try again.";
       fillAnswer(pendingRow, answer, data ? data.citation : null, data ? data.model : null);
     } catch(err){
       fillError(pendingRow, "Couldn't reach the wisdom service. Check the webhook URL in this file and confirm the n8n workflow is active, then try again.");
